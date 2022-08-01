@@ -71,17 +71,17 @@ bases:
 
 ```yaml
 resources:
-- ./vendor/katalog/auth/pomerium
-- ./vendor/katalog/auth/dex
+  - ./vendor/katalog/auth/pomerium
+  - ./vendor/katalog/auth/dex
 ```
 
-5. Create the configuration file for Dex ([example](katalog/dex/dex.yml)) and add it as a secret to the `kustomization.yaml` file:
+5. Create the configuration file for Dex ([example](katalog/dex/config.yml)) and add it as a secret to the `kustomization.yaml` file, for example:
 
 ```yaml
 secretGenerator:
   - name: dex
     files:
-      "secrets/dex/config.yml"
+      - config.yaml=./secrets/dex/config.yml
 ```
 
 ⛔️ Follow the instructions in [pomerium's package readme](katalog/pomerium/README.md) before proceeding.
