@@ -5,11 +5,6 @@
 namespace: kube-system
 
 resources:
-- deploy.yml
-- rbac.yml
-- sm.yml
-
-# secretGenerator:
-#   - name: dex
-#     commands:
-#       config.yml: "cat dex.yml"
+  - deploy.yml
+  - rbac.yml
+  - sm.yml
