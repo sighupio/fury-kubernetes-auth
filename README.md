@@ -80,13 +80,14 @@ resources:
 ```yaml
 secretGenerator:
   - name: dex
+    namespace: kube-system
     files:
-      - config.yaml=./secrets/dex/config.yml
+      - config.yml=./secrets/dex/config.yml
 ```
 
 ⛔️ Follow the instructions in [pomerium's package readme](katalog/pomerium/README.md) before proceeding.
 
-6. To deploy the packages to your cluster, execute:
+6. Finally, to deploy the module to your cluster, execute:
 
 ```bash
 kustomize build . | kubectl apply -f -

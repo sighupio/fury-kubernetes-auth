@@ -20,35 +20,40 @@ spec:
     spec:
       serviceAccount: dex
       containers:
-      - name: dex
-        image: quay.io/dexidp/dex:v2.20.0
-        command:
-        - /usr/local/bin/dex
-        - serve
-        - /etc/dex/cfg/config.yml
-        ports:
-        - name: http
-          containerPort: 5556
-        - name: metrics
-          containerPort: 5558
-        readinessProbe:
+        - name: dex
+          image: quay.io/dexidp/dex:v2.20.0
+          command:
+            - /usr/local/bin/dex
+            - serve
+            - /etc/dex/cfg/config.yml
+          ports:
+            - name: http
+              containerPort: 5556
+            - name: metrics
+              containerPort: 5558
+          env:
+            - name: KUBERNETES_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          readinessProbe:
             httpGet:
               path: "/healthz"
               port: 5556
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 250m
-            memory: 200Mi
-        volumeMounts:
-        - name: config
-          mountPath: /etc/dex/cfg
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 250m
+              memory: 200Mi
+          volumeMounts:
+            - name: config
+              mountPath: /etc/dex/cfg
       volumes:
-      - name: config
-        secret:
-          secretName: dex
+        - name: config
+          secret:
+            secretName: dex
 ---
 apiVersion: v1
 kind: Service
@@ -58,11 +63,11 @@ metadata:
     app: dex
 spec:
   ports:
-  - name: http
-    port: 5556
-    targetPort: http
-  - name: metrics
-    port: 5558
-    targetPort: metrics
+    - name: http
+      port: 5556
+      targetPort: http
+    - name: metrics
+      port: 5558
+      targetPort: metrics
   selector:
     app: dex
