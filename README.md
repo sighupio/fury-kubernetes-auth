@@ -31,12 +31,12 @@ Kubernetes Fury Auth provides the following packages:
 
 ## Compatibility
 
-| Kubernetes Version |   Compatibility    | Notes                                               |
-| ------------------ | :----------------: | --------------------------------------------------- |
-| `1.20.x`           | :white_check_mark: | No known issues                                     |
-| `1.21.x`           | :white_check_mark: | No known issues                                     |
-| `1.22.x`           | :white_check_mark: | No known issues                                     |
-| `1.23.x`           |     :warning:      | Conformance tests passed. Not officially supported. |
+| Kubernetes Version |   Compatibility    | Notes                           |
+| ------------------ | :----------------: | ------------------------------- |
+| `1.20.x`           | :white_check_mark: | No known issues                 |
+| `1.21.x`           |        :x:         | No compatible with this relase. |
+| `1.22.x`           |        :x:         | No compatible with this relase. |
+| `1.23.x`           |        :x:         | No compatible with this relase. |
 
 Check the [compatibility matrix][compatibility-matrix] for additional information on previous releases of the modules.
 

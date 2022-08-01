@@ -8,7 +8,7 @@ This package deploys Dex to authenticate users via LDAP.
 
 ## Requirements
 
-- Kubernetes >= `1.20.0`
+- Kubernetes <= `1.20.0`
 - Kustomize >= `v3`
 
 ## Image repository and tag
