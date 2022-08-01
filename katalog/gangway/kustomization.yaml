@@ -5,4 +5,4 @@
 namespace: kube-system
 
 resources:
-- deploy.yml
+  - deploy.yml
