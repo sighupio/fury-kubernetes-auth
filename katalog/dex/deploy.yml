@@ -31,11 +31,6 @@ spec:
               containerPort: 5556
             - name: metrics
               containerPort: 5558
-          env:
-            - name: KUBERNETES_POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
           readinessProbe:
             httpGet:
               path: "/healthz"

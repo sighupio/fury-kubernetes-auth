@@ -22,12 +22,11 @@ If you are new to KFD please refer to the [official documentation][kfd-docs] on 
 
 Kubernetes Fury Auth provides the following packages:
 
-| Package                                                | Version   | Description                                                                                                                                                |
-| ------------------------------------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [pomerium](katalog/pomerium)                           | `v0.15.8` | Identity-aware proxy that enables secure access to internal applications.                                                                                  |
-| [dex](katalog/dex)                                     | `v2.20.0` | OpenID Connect (OIDC) identity and OAuth 2.0 provider.                                                                                                     |
-| [dex-k8s-authenticator](katalog/dex-k8s-authenticator) | `v1.1.0`  | A helper web-app which talks to one or more Dex Identity services to generate kubectl commands for creating and modifying a kubeconfig. (to be deprecated) |
-| [gangway](katalog/gangway)                             | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster  (to be deprected)                                                                           |
+| Package                      | Version   | Description                                                                     |
+| ---------------------------- | --------- | ------------------------------------------------------------------------------- |
+| [pomerium](katalog/pomerium) | `v0.15.8` | Identity-aware proxy that enables secure access to internal applications.       |
+| [dex](katalog/dex)           | `v2.20.0` | OpenID Connect (OIDC) identity and OAuth 2.0 provider.                          |
+| [gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprected) |
 
 ## Compatibility
 
@@ -75,7 +74,7 @@ resources:
   - ./vendor/katalog/auth/dex
 ```
 
-5. Create the configuration file for Dex ([example](katalog/dex/config.yml)) and add it as a secret to the `kustomization.yaml` file, for example:
+5. Create the configuration file for Dex ([here's an LDAP-based example](katalog/dex/config.yml)) and add it as a secret to the `kustomization.yaml` file, like this:
 
 ```yaml
 secretGenerator:
@@ -85,7 +84,9 @@ secretGenerator:
       - config.yml=./secrets/dex/config.yml
 ```
 
-⛔️ Follow the instructions in [pomerium's package readme](katalog/pomerium/README.md) before proceeding.
+> ℹ️ read more on [Dex's readme](katalog/dex/README.md).
+
+⛔️ Before proceeding, follow the instructions in [Pomerium's package readme](katalog/pomerium/README.md) to configure it.
 
 6. Finally, to deploy the module to your cluster, execute:
 

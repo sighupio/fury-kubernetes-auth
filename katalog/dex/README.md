@@ -4,7 +4,9 @@
 
 Dex is an OpenID Connect (OIDC) identity and OAuth 2.0 provider.
 
-This package deploys Dex to authenticate users via LDAP.
+You can use Dex for example to provide OIDC authentication using users from an LDAP backend.
+
+> ℹ️ Learn more about Dex in [the official documentation](https://dexidp.io/docs/getting-started/).
 
 ## Requirements
 
@@ -24,15 +26,17 @@ Dex is deployed with the following default configuration:
 - Listens on port `5556`
 - Resource limits are `250m` for CPU and `200Mi` for memory
 
-To configure Dex create a YAML file named `config.yml` with the following content:
+Dex is configured using a `config.yml` file. You can get [a sample file from the official docs](https://github.com/dexidp/dex/blob/v2.20.0/examples/config-dev.yaml) or check out the [provided LDAP-based example configuration file](example/config.yml)
 
-<!-- FIXME:NEEDS INSTRUCTIONS -->
-https://dexidp.io/docs/
+Once you have written the configuration file for your environment, create a Kubernetes secret named `dex` in the `kube-system` namespace with the contents of the file under the `config.yml` key.
 
+> ℹ️ We recommend you do this using Kustomize, either with a `secretGenerator` or as a resource.
+
+The `dex` secret will then be mounted by the deployment as a volume in the right path.
 
 ## Deployment
 
-You can deploy Dex by running the following command in the folder of this package:
+Once you have created the configuration file, you can deploy Dex by running the following command in the folder of this package:
 
 ```shell
 kustomize build | kubectl apply -f -
