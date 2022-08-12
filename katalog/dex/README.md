@@ -16,7 +16,7 @@ You can use Dex for example to provide OIDC authentication using users from an L
 ## Image repository and tag
 
 - Dex repository: <https://github.com/dexidp/dex>
-- Dex container image: `quay.io/dexidp/dex:v2.20.0`
+- Dex container image: `registry.sighup.io/fury/dexidp/dex:v2.20.0`
 
 ## Configuration
 
