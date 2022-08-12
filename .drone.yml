@@ -7,11 +7,10 @@ kind: pipeline
 type: docker
 
 steps:
-  - name: check
-    image: docker.io/library/golang:1.18
+  - name: check-license
+    image: ghcr.io/google/addlicense:latest
     pull: always
     commands:
-      - go get -u github.com/google/addlicense
       - addlicense -c "SIGHUP s.r.l" -v -l bsd -y "2017-present" --check .
 
 ---
