@@ -1,0 +1,15 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+namespace: kube-system
+
+resources:
+  - deploy.yml
+  - rbac.yml
+  - sm.yml
+
+images:
+  - name: quay.io/dexidp/dex:v2.20.0
+    newName: registry.sighup.io/fury/dexidp/dex
+    newTag: v2.20.0

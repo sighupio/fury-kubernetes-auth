@@ -1,0 +1,13 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+namespace: kube-system
+
+resources:
+  - deploy.yml
+
+images:
+  - name: gcr.io/heptio-images/gangway
+    newName: registry.sighup.io/fury/heptio-images/gangway
+    newTag: v3.2.0

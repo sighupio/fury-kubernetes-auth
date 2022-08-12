@@ -6,15 +6,13 @@ Pomerium is an identity-aware proxy that enables secure access to internal appli
 
 ## Pomerium Setup
 
-This document is intended to give a brief overview on how Pomerium can be implemented, for further details, please look at the [official documentation][pomerium-docs].
+This document is intended to give a brief overview of how Pomerium can be implemented, for further details, please look at the [official documentation][pomerium-docs].
 
-## Deploy
+### Deploy
 
-The base kustomization file present [here](./kustomization.yaml) allows to quickly integrate this service with an existing Dex service, that could, for example, be connected to LDAP.
+The base kustomization file present [here](./kustomization.yaml) allows to quickly integrate this service with an existing Dex service that could, for example, be connected to an LDAP backend.
 
-> See [Dex official documentation][dex-docs] for more details.
-
-In order to do so, you will need to edit your Dex configuration, adding a static client to be used by Pomerium, like in the example below:
+To do so, you will need to edit your Dex configuration, adding a static client to be used by Pomerium, like in the example below:
 
 ```yaml
 >>staticClients:
@@ -25,9 +23,11 @@ In order to do so, you will need to edit your Dex configuration, adding a static
        - "https://pomerium.example.com/oauth2/callback"
 ```
 
-Configure the `redirectURIs` section accordingly to the hosts used for the pomerium ingress.
+> ⚠️ Configure the `redirectURIs` section accordingly to the hosts used for the pomerium ingress.
+<!-- space intentionally left blank -->
+> See [Dex official documentation][dex-docs] for more details.
 
-Once dex is configured correctly, you will need to ovverride the configuration example ([policy](./config/policy.example.yaml) and environment variables via a [configmap](./config/config.example.env) and [secret](secrets/pomerium.example.env)) like in the example below:
+Once Dex is configured correctly, you will need to override the configuration example ([policy](./config/policy.example.yaml) and environment variables via a [configmap](./config/config.example.env) and [secret](secrets/pomerium.example.env)) in your `kustomization.yaml` file like in the example below:
 
 ```yaml
 configMapGenerator:
@@ -47,13 +47,13 @@ secretGenerator:
       - secrets/pomerium.env
 ```
 
-Just copy the examples in the module and override them according to your settings.
+> 💡 You can copy the examples in the module (see [1](config/config.example.env), [2](config/policy.example.yaml), and [3](secrets/pomerium.example.env)) and override them according to your settings.
 
 **⚠ WARNING: in the policy file, you'll need to set up a policy for each ingress you want to protect with Pomerium authorization service.**
 
-## Ingresses
+### Ingresses
 
-Once Pomerium and Dex are correctly configured, the last step is to add annotations to the ingresses you've added previously in the policy yaml file:
+Once Pomerium and Dex are correctly configured, the last step is to add annotations to the ingresses you've added previously in the policy YAML file, for example:
 
 ```yaml
 ---
@@ -88,7 +88,7 @@ spec:
       secretName: prometheus-tls
 ```
 
-Now if you'll try to reach the `prometheus.example.com` you'll be forwarded to the dex login page accordingly with the rules set in your policy. Enjoy!
+Now if you access `http(s)://prometheus.example.com` you'll be forwarded to the Dex login page accordingly with the rules set in your policy.
 
 <!-- Links -->
 [pomerium-docs]: https://www.pomerium.io/docs/
