@@ -16,7 +16,7 @@ Kubernetes supports OpenID Connect Tokens as a way to identify users who access 
 ## Image repository and tag
 
 - Gangway repository: <https://github.com/vmware-archive/gangway>
-- Gangway container image: `gcr.io/heptio-images/gangway:v3.2.0`
+- Gangway container image: `registry.sighup.io/fury/dexidp/dex:v3.2.0`
 
 ## Configuration
 
