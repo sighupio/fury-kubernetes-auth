@@ -6,3 +6,8 @@ namespace: kube-system
 
 resources:
   - deploy.yml
+
+images:
+  - name: gcr.io/heptio-images/gangway
+    newName: registry.sighup.io/fury/heptio-images/gangway
+    newTag: v3.2.0
