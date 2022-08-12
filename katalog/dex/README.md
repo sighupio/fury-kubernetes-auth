@@ -2,7 +2,7 @@
 
 <!-- <KFD-DOCS> -->
 
-Dex is an OpenID Connect (OIDC) identity and OAuth 2.0 provider.
+Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
 
 You can use Dex for example to provide OIDC authentication using users from an LDAP backend.
 

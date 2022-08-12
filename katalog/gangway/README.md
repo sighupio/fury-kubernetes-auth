@@ -22,6 +22,8 @@ Kubernetes supports OpenID Connect Tokens as a way to identify users who access 
 
 Gangway is configured using a `gangway.yml` file. You can find a [sample configuration file here](example/gangway.yml).
 
+Notice that to enable Gangway to communicate with Dex you need to add the required configuration under `staticClients` section.
+
 Once you have written your configuration file, create a Kubernetes secret named `gangway` in the `kube-system` namespace with the contents of the configuration file under the `gangway.yml` key.
 
 > ℹ️ We recommend you do this using Kustomize, either with a `secretGenerator` or as a resource.
