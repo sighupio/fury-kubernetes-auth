@@ -11,7 +11,7 @@ steps:
     image: ghcr.io/google/addlicense:latest
     pull: always
     commands:
-      - addlicense -c "SIGHUP s.r.l" -v -l bsd -y "2017-present" --check .
+      - /app/addlicense -c "SIGHUP s.r.l" -v -l bsd -y "2017-present" --check .
 
 ---
 name: policeman
