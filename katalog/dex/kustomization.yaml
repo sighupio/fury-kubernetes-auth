@@ -9,6 +9,9 @@ resources:
   - rbac.yml
   - sm.yml
 
+patchesStrategicMerge:
+  - "patches/namespace-envvar.yaml"
+
 images:
   - name: quay.io/dexidp/dex:v2.20.0
     newName: registry.sighup.io/fury/dexidp/dex

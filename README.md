@@ -12,11 +12,11 @@
 <!-- <KFD-DOCS> -->
 **Kubernetes Fury Auth** provides Authentication Management for [Kubernetes Fury Distribution (KFD)][kfd-repo].
 
-If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with KFD.
+If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with the distribution.
 
 ## Overview
 
-**Kubernetes Fury Auth** uses CNCF recommended, Cloud Native projects, such as [Dex][dex-repo] an identity provider, and [Pomerium][pomerium-repo] an identity-aware proxy to enable secure access to internal applications.
+**Kubernetes Fury Auth** uses CNCF recommended, Cloud Native projects, such as the [Dex][dex-repo] identity provider, and [Pomerium][pomerium-repo] as an identity-aware proxy to enable secure access to internal applications.
 
 ## Packages
 
@@ -33,7 +33,7 @@ Kubernetes Fury Auth provides the following packages:
 | Kubernetes Version |   Compatibility    | Notes                           |
 | ------------------ | :----------------: | ------------------------------- |
 | `1.20.x`           | :white_check_mark: | No known issues                 |
-| `1.21.x`           |        :x:         | No compatible with this relase. |
+| `1.21.x`           |     :warning:      | No compatible with this relase. |
 | `1.22.x`           |        :x:         | No compatible with this relase. |
 | `1.23.x`           |        :x:         | No compatible with this relase. |
 
