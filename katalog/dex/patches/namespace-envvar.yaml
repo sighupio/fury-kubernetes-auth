@@ -7,21 +7,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dex
-  labels:
-    app: dex
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: dex
-  template:
-    metadata:
-      labels:
-        app: dex
-    spec:
-      serviceAccount: dex
-      containers:
-        - name: dex
-          env:
-            - name: KUBERNETES_POD_NAMESPACE
-              value: kube-system
+  spec:
+    containers:
+      - name: dex
+        env:
+          - name: KUBERNETES_POD_NAMESPACE
+            value: kube-system
