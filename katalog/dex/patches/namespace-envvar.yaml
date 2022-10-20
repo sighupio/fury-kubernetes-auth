@@ -13,4 +13,6 @@ spec:
       - name: dex
         env:
           - name: KUBERNETES_POD_NAMESPACE
-            value: kube-system
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
