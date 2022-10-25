@@ -11,6 +11,6 @@ To update the Dex package, follow the next steps:
 ## Customizations
 
 - Splitted the sample manifest into several files.
-- Deleted the environment variables for GitHubn authentication from the upsteam example.
+- Deleted the environment variables for GitHub authentication from the upstream example.
 - Added the `metrics` port to the deployment
 - Dex gets deployed into the `kube-system` namespace instead of `dex`
