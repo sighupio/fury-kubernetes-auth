@@ -10,6 +10,5 @@ resources:
   - sm.yml
 
 images:
-  - name: quay.io/dexidp/dex:v2.20.0
+  - name: ghcr.io/dexidp/dex
     newName: registry.sighup.io/fury/dexidp/dex
-    newTag: v2.20.0
