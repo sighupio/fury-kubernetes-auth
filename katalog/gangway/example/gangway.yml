@@ -70,4 +70,4 @@ apiServerURL: "https://${GANGWAY_APISERVER_URL}"
 #httpPath: "https://${GANGWAY_HTTP_PATH}"
 # The path to find custom HTML templates
 # Env var: GANGWAY_CUSTOM_HTTP_TEMPLATES_DIR
-#customHTMLTemplatesDir: /custom-templates
+customHTMLTemplatesDir: /custom-templates
