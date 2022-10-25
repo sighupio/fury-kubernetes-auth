@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: gangway
-          image: gcr.io/heptio-images/gangway:v3.2.0
+          image: gcr.io/heptio-images/gangway:v3.3.0
           imagePullPolicy: Always
           command: ["gangway", "-config", "/gangway/gangway.yml"]
           livenessProbe:
@@ -52,10 +52,15 @@ spec:
           volumeMounts:
             - name: gangway
               mountPath: /gangway/
+            - name: html-templates
+              mountPath: /custom-templates
       volumes:
         - name: gangway
           secret:
             secretName: gangway
+        - name: html-templates
+          configMap:
+            name: html-templates
 ---
 kind: Service
 apiVersion: v1
