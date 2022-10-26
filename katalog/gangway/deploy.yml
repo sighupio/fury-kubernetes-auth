@@ -52,10 +52,15 @@ spec:
           volumeMounts:
             - name: gangway
               mountPath: /gangway/
+            - name: html-templates
+              mountPath: /custom-templates
       volumes:
         - name: gangway
           secret:
             secretName: gangway
+        - name: html-templates
+          configMap:
+            name: html-templates
 ---
 kind: Service
 apiVersion: v1

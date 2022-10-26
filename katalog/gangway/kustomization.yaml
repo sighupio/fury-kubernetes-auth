@@ -7,6 +7,12 @@ namespace: kube-system
 resources:
   - deploy.yml
 
+configMapGenerator:
+  - name: html-templates
+    files:
+      - html-templates/home.tmpl
+      - html-templates/commandline.tmpl
+
 images:
   - name: gcr.io/heptio-images/gangway
     newName: registry.sighup.io/fury/heptio-images/gangway

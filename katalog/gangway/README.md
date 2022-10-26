@@ -11,7 +11,7 @@ Kubernetes supports OpenID Connect Tokens as a way to identify users who access 
 ## Requirements
 
 - Kubernetes >= `1.18.0`
-- Kustomize >= `v3`
+- Kustomize = `v3.5.3`
 
 ## Image repository and tag
 

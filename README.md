@@ -12,11 +12,11 @@
 <!-- <KFD-DOCS> -->
 **Kubernetes Fury Auth** provides Authentication Management for [Kubernetes Fury Distribution (KFD)][kfd-repo].
 
-If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with KFD.
+If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with the distribution.
 
 ## Overview
 
-**Kubernetes Fury Auth** uses CNCF recommended, Cloud Native projects, such as [Dex][dex-repo] an identity provider, and [Pomerium][pomerium-repo] an identity-aware proxy to enable secure access to internal applications.
+**Kubernetes Fury Auth** uses CNCF recommended, Cloud Native projects, such as the [Dex][dex-repo] identity provider, and [Pomerium][pomerium-repo] as an identity-aware proxy to enable secure access to internal applications.
 
 ## Packages
 
@@ -25,17 +25,17 @@ Kubernetes Fury Auth provides the following packages:
 | Package                      | Version   | Description                                                                      |
 | ---------------------------- | --------- | -------------------------------------------------------------------------------- |
 | [Pomerium](katalog/pomerium) | `v0.15.8` | Identity-aware proxy that enables secure access to internal applications.        |
-| [Dex](katalog/dex)           | `v2.20.0` | Dex is a Federated OpenID Connect Provider.                                      |
+| [Dex](katalog/dex)           | `v2.35.3` | Dex is a Federated OpenID Connect Provider.                                      |
 | [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprected). |
 
 ## Compatibility
 
-| Kubernetes Version |   Compatibility    | Notes                           |
-| ------------------ | :----------------: | ------------------------------- |
-| `1.20.x`           | :white_check_mark: | No known issues                 |
-| `1.21.x`           |        :x:         | No compatible with this relase. |
-| `1.22.x`           |        :x:         | No compatible with this relase. |
-| `1.23.x`           |        :x:         | No compatible with this relase. |
+| Kubernetes Version |   Compatibility    | Notes            |
+| ------------------ | :----------------: | ---------------- |
+| `1.21.x`           | :white_check_mark: | No known issues. |
+| `1.22.x`           | :white_check_mark: | No known issues. |
+| `1.23.x`           | :white_check_mark: | No known issues. |
+| `1.24.x`           | :white_check_mark: | No known issues. |
 
 Check the [compatibility matrix][compatibility-matrix] for additional information on previous releases of the modules.
 
@@ -54,7 +54,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.1.0"
+    auth: "v0.2.0"
 bases:
   - name: auth/pomerium
   - name: auth/dex
