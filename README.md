@@ -24,7 +24,7 @@ Kubernetes Fury Auth provides the following packages:
 
 | Package                      | Version   | Description                                                                      |
 | ---------------------------- | --------- | -------------------------------------------------------------------------------- |
-| [Pomerium](katalog/pomerium) | `v0.15.8` | Identity-aware proxy that enables secure access to internal applications.        |
+| [Pomerium](katalog/pomerium) | `v0.19.1` | Identity-aware proxy that enables secure access to internal applications.        |
 | [Dex](katalog/dex)           | `v2.35.3` | Dex is a Federated OpenID Connect Provider.                                      |
 | [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprected). |
 
@@ -54,7 +54,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.0.2"
+    auth: "v0.0.3"
 bases:
   - name: auth/pomerium
   - name: auth/dex
