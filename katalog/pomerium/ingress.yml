@@ -1,4 +1,4 @@
-# Copyright (c) 2021 SIGHUP s.r.l All rights reserved.
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -25,8 +25,32 @@ spec:
               service:
                 name: pomerium
                 port:
-                  number: 80
+                  name: http
   tls:
     - hosts:
         - $(AUTHENTICATE_SERVICE_HOST)
       secretName: pomerium-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pomerium-fwd
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: internal
+  rules:
+    - host: $(FORWARD_AUTH_HOST)
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pomerium
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - $(FORWARD_AUTH_HOST)
+      secretName: pomerium-fwd-tls

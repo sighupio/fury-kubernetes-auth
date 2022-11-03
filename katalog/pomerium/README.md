@@ -10,7 +10,7 @@ This document is intended to give a brief overview of how Pomerium can be implem
 
 ### Deploy
 
-The base kustomization file present [here](./kustomization.yaml) allows to quickly integrate this service with an existing Dex service that could, for example, be connected to an LDAP backend.
+The base kustomization file present [here](./kustomization.yaml) allows you to quickly integrate Pomerium in Forward auth mode with an existing Dex service that could, for example, be connected to an LDAP backend.
 
 To do so, you will need to edit your Dex configuration, adding a static client to be used by Pomerium, like in the example below:
 
@@ -49,7 +49,7 @@ secretGenerator:
 
 > 💡 You can copy the examples in the module (see [1](config/config.example.env), [2](config/policy.example.yaml), and [3](secrets/pomerium.example.env)) and override them according to your settings.
 
-**⚠ WARNING: in the policy file, you'll need to set up a policy for each ingress you want to protect with Pomerium authorization service.**
+**⚠ WARNING: in the policy file, you'll need to set up a route for each ingress you want to protect with Pomerium authorization service.**
 
 ### Ingresses
 
@@ -67,8 +67,8 @@ metadata:
     kubernetes.io/ingress.class: "internal"
     kubernetes.io/tls-acme: "true"
     # authentication annotations
-    nginx.ingress.kubernetes.io/auth-url: "https://pomerium.example.com/verify?uri=$scheme://$host$request_uri"
-    nginx.ingress.kubernetes.io/auth-signin: "https://pomerium.example.com/?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-url: "https://pomeriumfwd.example.com/verify?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-signin: "https://pomeriumfwd.example.com/?uri=$scheme://$host$request_uri"
   name: prometheus
   namespace: monitoring
 spec:

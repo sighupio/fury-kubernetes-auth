@@ -1,4 +1,4 @@
-# Copyright (c) 2021 SIGHUP s.r.l All rights reserved.
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -27,7 +27,7 @@ secretGenerator:
 configMapGenerator:
   - name: pomerium-policy
     files:
-      - config/policy.example.yaml
+      - policy.yml=config/policy.example.yaml
   - name: pomerium
     envs:
       - config/config.example.env
@@ -51,4 +51,4 @@ vars:
 images:
   - name: pomerium/pomerium
     newName: registry.sighup.io/fury/pomerium/pomerium
-    newTag: v0.15.8
+    newTag: v0.19.1
