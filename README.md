@@ -54,7 +54,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.2.0"
+    auth: "v0.0.2"
 bases:
   - name: auth/pomerium
   - name: auth/dex
