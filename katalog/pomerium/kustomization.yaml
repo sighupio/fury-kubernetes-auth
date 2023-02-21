@@ -18,6 +18,7 @@ resources:
   - deploy.yml
   - svc.yml
   - ingress.yml
+  - monitoring
 
 secretGenerator:
   - name: pomerium-env
@@ -51,4 +52,4 @@ vars:
 images:
   - name: pomerium/pomerium
     newName: registry.sighup.io/fury/pomerium/pomerium
-    newTag: v0.19.1
+    newTag: nonroot-v0.21.0

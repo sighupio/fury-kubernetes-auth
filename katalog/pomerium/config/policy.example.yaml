@@ -8,6 +8,7 @@ metrics_address: ":9090"
 
 # this is set because the service is behind an ssl ingress
 insecure_server: true
+# we use cert-manager
 autocert: false
 
 routes:
@@ -22,4 +23,4 @@ routes:
             - claim/groups: group2
             # You can use other conditions, like:
             # - email:
-               # is: jacopo@sighup.io
+            # is: sales@sighup.io
