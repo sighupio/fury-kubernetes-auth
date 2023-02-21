@@ -12,7 +12,7 @@ spec:
   endpoints:
     - interval: 30s
       port: metrics
-  jobLabel: k8s-app
+  jobLabel: dex
   namespaceSelector:
     matchNames:
       - kube-system
