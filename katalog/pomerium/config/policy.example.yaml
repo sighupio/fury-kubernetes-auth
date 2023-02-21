@@ -12,9 +12,12 @@ insecure_server: true
 autocert: false
 
 routes:
-  # from and to should be set to the prometheus ingress
+  # from is the hostname you want to use for the application and
+  # an ingress for that host should exist pointing to the http port
+  # of pomerium's service.
+  # The to field should point to the internal service you want to protect.
   - from: https://grafana.example.com
-    to: https://grafana.example.com
+    to: http://grafana.monitoring.svc.cluster.local:3000
     policy:
       - allow:
           or:
