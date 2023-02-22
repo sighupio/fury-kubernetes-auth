@@ -96,9 +96,41 @@ secretGenerator:
 kustomize build . | kubectl apply -f -
 ```
 
+### Monitoring
+
+KFD Auth module integrates out-of-the-box with KFD's Monitoring module. Providing metrics and dashboards to visualize the status of its components.
+
+In particular:
+
+- Dex exposes standard Go adapter metrics, the metrics are automatically scrapped by Prometheus when using KFD Monitoring module but there are no Grafana dashboards nor alerts defined.
+- Pomerium exposes several metrics about Pomerium itself and its underlying envoy proxy. Metrics are scrapped automatically by Prometheus and 2 Grafana dashboards are available with the `pomerium` tag when using KFD Monitoring module. Here are some screenshots:
+
+<!-- markdownlint-disable MD033 -->
+
+<a href="docs/images/screenshots/pomerium-dashboard.png"><img src="docs/images/screenshots/pomerium-dashboard.png" width="250"/></a>
+<a href="docs/images/screenshots/pomerium-envoy-dashboard.png"><img src="docs/images/screenshots/pomerium-envoy-dashboard.png" width="250"/></a>
+
+<!-- markdownlint-enable MD033 -->
+
+### Screenshots
+
+<!-- markdownlint-disable MD033 -->
+- Dex Login:
+
+<a href="docs/images/screenshots/dex.png"><img src="docs/images/screenshots/dex.png" width="250"/></a>
+
+- Pomerium 403 not authorized error screen:
+
+<a href="docs/images/screenshots/pomerium-403.png"><img src="docs/images/screenshots/pomerium-403.png" width="250"/></a>
+
+- Pomerium user profile screen:
+
+<a href="docs/images/screenshots/pomerium-userprofile.png"><img src="docs/images/screenshots/pomerium-userprofile.png" width="250"/></a>
+
+<!-- markdownlint-enable MD033 -->
+
 <!-- Links -->
 [furyctl-repo]: https://github.com/sighupio/furyctl
-[sighup-page]: https://sighup.io
 [kfd-repo]: https://github.com/sighupio/fury-distribution
 [kustomize-repo]: https://github.com/kubernetes-sigs/kustomize
 [kfd-docs]: https://docs.kubernetesfury.com/docs/distribution/
