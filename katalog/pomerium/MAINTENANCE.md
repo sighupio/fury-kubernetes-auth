@@ -3,7 +3,7 @@
 Upstream documentation is located at: <https://www.pomerium.com/docs/>
 Upgrade docs are here: <https://www.pomerium.com/docs/overview/upgrading>
 
-> ⚠️ Notice that the component that we deploy is "Pomerium" all-in-one and not the Pomerium Ingress Controller. We use Pomerium only in Forward mode to auth the Ingress requests.
+> ⚠️ Notice that the component that we deploy is "Pomerium" all-in-one and not the Pomerium Ingress Controller. We use Pomerium only in proxy mode to auth the Ingress requests.
 
 Releases of Pomerium can be found at: <https://github.com/pomerium/pomerium>
 
