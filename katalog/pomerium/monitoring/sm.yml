@@ -5,17 +5,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  labels:
-    k8s-app: dex
-  name: dex
+  name: pomerium
 spec:
   endpoints:
-    - interval: 30s
-      port: metrics
-  jobLabel: dex
-  namespaceSelector:
-    matchNames:
-      - kube-system
+    - port: metrics
   selector:
     matchLabels:
-      app: dex
+      app: pomerium

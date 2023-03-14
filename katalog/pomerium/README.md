@@ -10,7 +10,7 @@ This document is intended to give a brief overview of how Pomerium can be implem
 
 ### Deploy
 
-The base kustomization file present [here](./kustomization.yaml) allows to quickly integrate this service with an existing Dex service that could, for example, be connected to an LDAP backend.
+The base kustomization file present [here](./kustomization.yaml) allows you to quickly integrate Pomerium in proxy auth mode with an existing Dex service that could, for example, be connected to an LDAP backend.
 
 To do so, you will need to edit your Dex configuration, adding a static client to be used by Pomerium, like in the example below:
 
@@ -49,11 +49,11 @@ secretGenerator:
 
 > 💡 You can copy the examples in the module (see [1](config/config.example.env), [2](config/policy.example.yaml), and [3](secrets/pomerium.example.env)) and override them according to your settings.
 
-**⚠ WARNING: in the policy file, you'll need to set up a policy for each ingress you want to protect with Pomerium authorization service.**
+**⚠ WARNING: in the policy file, you'll need to set up a route for each ingress you want to protect with Pomerium authorization service.**
 
 ### Ingresses
 
-Once Pomerium and Dex are correctly configured, the last step is to add annotations to the ingresses you've added previously in the policy YAML file, for example:
+Once Pomerium and Dex are correctly configured, the last step is to create an Ingress with the hostname to expose your application **in Pomerium's namespace** pointing to Pomerium's service, for example:
 
 ```yaml
 ---
@@ -64,14 +64,12 @@ metadata:
     forecastle.stakater.com/expose: "true"
     forecastle.stakater.com/appName: "Prometheus"
     forecastle.stakater.com/icon: "https://github.com/stakater/ForecastleIcons/raw/master/prometheus.png"
-    kubernetes.io/ingress.class: "internal"
     kubernetes.io/tls-acme: "true"
-    # authentication annotations
-    nginx.ingress.kubernetes.io/auth-url: "https://pomerium.example.com/verify?uri=$scheme://$host$request_uri"
-    nginx.ingress.kubernetes.io/auth-signin: "https://pomerium.example.com/?uri=$scheme://$host$request_uri"
+
   name: prometheus
-  namespace: monitoring
+  namespace: pomerium
 spec:
+  ingressClassName: internal  # or external, or nginx.
   rules:
     - host: prometheus.example.com
       http:
@@ -79,16 +77,16 @@ spec:
           - path: /
             backend:
               service:
-                name: prometheus-k8s
+                name: pomerium  # notice: pomerium, not prometheus
                 port:
-                  name: web
+                  name: http
   tls:
     - hosts:
         - prometheus.example.com
       secretName: prometheus-tls
 ```
 
-Now if you access `http(s)://prometheus.example.com` you'll be forwarded to the Dex login page accordingly with the rules set in your policy.
+Now if you access `http(s)://prometheus.example.com` you'll be forwarded to the Dex login page and if the user is authorized the application will be proxied by Pomerim accordingly with the rules set in your policy.
 
 <!-- Links -->
 [pomerium-docs]: https://www.pomerium.io/docs/
