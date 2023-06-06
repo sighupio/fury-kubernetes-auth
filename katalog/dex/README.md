@@ -10,7 +10,7 @@ You can use Dex for example to provide OIDC authentication using users from an L
 
 ## Requirements
 
-- Kubernetes <= `1.20.0`
+- Kubernetes >= `1.20.0`
 - Kustomize >= `v3`
 
 ## Image repository and tag
