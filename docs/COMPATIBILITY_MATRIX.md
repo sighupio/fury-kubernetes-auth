@@ -6,7 +6,7 @@
 | v0.0.1                              | :white_check_mark: |     :warning:      |        :x:         | :x:                | :x:                |                    |                    |
 | v0.0.2                              |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |
 | v0.0.3                              |                    |                    |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |
-| v0.0.3                              |                    |                    |                    |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| v0.0.4                              |                    |                    |                    |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 :white_check_mark: Compatible
 

@@ -5,7 +5,7 @@
 </h1>
 <!-- markdownlint-enable MD033 -->
 
-![Release](https://img.shields.io/badge/Latest%20Release-v0.0.3-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v0.0.4-blue)
 ![License](https://img.shields.io/github/license/sighupio/fury-kubernetes-auth?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -25,17 +25,16 @@ Kubernetes Fury Auth provides the following packages:
 | Package                      | Version   | Description                                                                      |
 | ---------------------------- | --------- | -------------------------------------------------------------------------------- |
 | [Pomerium](katalog/pomerium) | `v0.21.0` | Identity-aware proxy that enables secure access to internal applications.        |
-| [Dex](katalog/dex)           | `v2.35.3` | Dex is a Federated OpenID Connect Provider.                                      |
+| [Dex](katalog/dex)           | `v2.36.0` | Dex is a Federated OpenID Connect Provider.                                      |
 | [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprected). |
 
 ## Compatibility
 
 | Kubernetes Version |   Compatibility    | Notes            |
 | ------------------ | :----------------: | ---------------- |
-| `1.21.x`           | :white_check_mark: | No known issues. |
-| `1.22.x`           | :white_check_mark: | No known issues. |
-| `1.23.x`           | :white_check_mark: | No known issues. |
 | `1.24.x`           | :white_check_mark: | No known issues. |
+| `1.25.x`           | :white_check_mark: | No known issues. |
+| `1.26.x`           | :white_check_mark: | No known issues. |
 
 Check the [compatibility matrix][compatibility-matrix] for additional information on previous releases of the modules.
 
@@ -54,7 +53,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.0.3"
+    auth: "v0.0.4"
 bases:
   - name: auth/pomerium
   - name: auth/dex
