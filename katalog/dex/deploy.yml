@@ -21,7 +21,7 @@ spec:
       serviceAccountName: dex
       containers:
         - name: dex
-          image: ghcr.io/dexidp/dex:v2.35.3
+          image: ghcr.io/dexidp/dex:v2.36.0
           command:
             - /usr/local/bin/dex
             - serve

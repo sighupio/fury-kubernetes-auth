@@ -10,13 +10,13 @@ You can use Dex for example to provide OIDC authentication using users from an L
 
 ## Requirements
 
-- Kubernetes <= `1.20.0`
+- Kubernetes >= `1.24.0`
 - Kustomize >= `v3`
 
 ## Image repository and tag
 
 - Dex repository: <https://github.com/dexidp/dex>
-- Dex container image: `registry.sighup.io/fury/dexidp/dex:v2.20.0`
+- Dex container image: `registry.sighup.io/fury/dexidp/dex:v2.36.0`
 
 ## Configuration
 
