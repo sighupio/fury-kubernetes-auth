@@ -1,16 +1,25 @@
 # Dex Package Maintenance Guide
 
-To update the Dex package, follow the next steps:
+To update the Dex package, follow the next steps.
 
-1. Download the sample manifests from upstream, <https://github.com/dexidp/dex/blob/master/examples/k8s/dex.yaml>.
-2. Compare them with the manifests in this folder.
-3. Port the needed changes
-4. Update the image tag
-5. Sync the image to our repository
+Run the following commands:
+
+```bash
+helm repo add dex https://charts.dexidp.io
+helm repo update
+helm template dex dex/dex -n kube-system --set serviceMonitor.enabled=true > dex-built.yml
+```
+
+With the `dex-built.yml` file, check differences with the current `deploy.yml` file and change accordingly.
 
 ## Customizations
 
-- Splitted the sample manifest into several files.
-- Deleted the environment variables for GitHub authentication from the upstream example.
-- Added the `metrics` port to the deployment
-- Dex gets deployed into the `kube-system` namespace instead of `dex`
+What was customized (what differs from the helm template command):
+
+- Simplified the labels
+- Changed metrics port name from `telemetry` to `metrics`
+- Simplified container command
+- Changed configuration path
+- Added resources and limits
+- Added interval `30s` to ServiceMonitor
+- Removed secret, since it's custom for each dex deploy
