@@ -1,0 +1,11 @@
+resources:
+  - ../../../katalog/dex
+
+secretGenerator:
+  - name: dex
+    namespace: kube-system
+    files:
+      - config.yml=dex-config.yml
+
+patchesStrategicMerge:
+  - dex-patch.yml

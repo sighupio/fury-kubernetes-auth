@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dex
+spec:
+  type: NodePort
+  ports:
+  - name: https
+    nodePort: 31557
+    port: 5557
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex
+spec:
+  template:
+    spec:
+      containers:
+        - name: dex
+          ports:
+            - name: https
+              containerPort: 5557
+          volumeMounts:
+            - name: dex-ssl
+              mountPath: /etc/dex/ssl
+      volumes:
+        - name: dex-ssl
+          secret:
+            secretName: dex-ssl
+---
