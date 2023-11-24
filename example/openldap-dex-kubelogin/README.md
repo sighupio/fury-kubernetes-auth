@@ -62,7 +62,7 @@ kube-system          kube-scheduler-kind-control-plane            1/1     Runnin
 local-path-storage   local-path-provisioner-6bc4bddd6b-x5nhf      1/1     Running   0          2m10s
 ```
 
-From the `kube-apiserver` logs you should see some errors related to `oidc authenticator`. 
+From the `kube-apiserver` logs you should see some errors related to `oidc authenticator`.
 This is expected, since our Dex server has not been installed yet.
 
 ```bash
