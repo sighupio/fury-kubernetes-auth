@@ -22,11 +22,11 @@ If you are new to KFD please refer to the [official documentation][kfd-docs] on 
 
 Kubernetes Fury Auth provides the following packages:
 
-| Package                      | Version   | Description                                                                      |
-| ---------------------------- | --------- | -------------------------------------------------------------------------------- |
-| [Pomerium](katalog/pomerium) | `v0.23.0` | Identity-aware proxy that enables secure access to internal applications.        |
-| [Dex](katalog/dex)           | `v2.37.0` | Dex is a Federated OpenID Connect Provider.                                      |
-| [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprected). |
+| Package                      | Version   | Description                                                                       |
+| ---------------------------- | --------- | --------------------------------------------------------------------------------- |
+| [Pomerium](katalog/pomerium) | `v0.23.0` | Identity-aware proxy that enables secure access to internal applications.         |
+| [Dex](katalog/dex)           | `v2.37.0` | Dex is a Federated OpenID Connect Provider.                                       |
+| [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprecated). |
 
 ## Compatibility
 
