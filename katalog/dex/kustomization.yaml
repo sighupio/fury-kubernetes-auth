@@ -6,10 +6,8 @@ namespace: kube-system
 
 resources:
   - deploy.yml
-  - rbac.yml
-  - sm.yml
 
 images:
   - name: ghcr.io/dexidp/dex
     newName: registry.sighup.io/fury/dexidp/dex
-    newTag: v2.36.0
+    newTag: v2.37.0
