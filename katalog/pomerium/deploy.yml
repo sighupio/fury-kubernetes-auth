@@ -43,8 +43,6 @@ spec:
             #   value: "debug"
             # - name: PROXY_LOG_LEVEL
             #   value: "debug"
-            # - name: POMERIUM_DEBUG
-            #   value: "true"
           livenessProbe:
             failureThreshold: 3
             httpGet:
