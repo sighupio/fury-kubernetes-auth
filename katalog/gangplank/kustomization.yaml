@@ -14,6 +14,5 @@ configMapGenerator:
       - html-templates/commandline.tmpl
 
 images:
-  - name: gcr.io/heptio-images/gangway
-    newName: registry.sighup.io/fury/gangplank
-    newTag: 0.1.0
+  - name: registry.sighup.io/fury/gangplank
+    newTag: "0.1.0"

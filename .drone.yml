@@ -51,7 +51,7 @@ steps:
     commands:
       - kustomize build katalog/pomerium > pomerium.yml
       - kustomize build katalog/dex > dex.yml
-      - kustomize build katalog/gangway > gangway.yml
+      - kustomize build katalog/gangplank > gangplank.yml
 
   - name: check-deprecated-apis
     image: us-docker.pkg.dev/fairwinds-ops/oss/pluto:v5
@@ -62,7 +62,7 @@ steps:
       # we use --ignore-deprecations because we don't want the CI to fail when the API has not been removed yet.
       - /pluto detect pomerium.yml --ignore-deprecations --target-versions=k8s=v1.29.0
       - /pluto detect dex.yml --ignore-deprecations --target-versions=k8s=v1.29.0
-      - /pluto detect gangway.yml --ignore-deprecations --target-versions=k8s=v1.29.0
+      - /pluto detect gangplank.yml --ignore-deprecations --target-versions=k8s=v1.29.0
 
 # ---
 # name: e2e-kubernetes-1.20
