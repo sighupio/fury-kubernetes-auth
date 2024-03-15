@@ -15,4 +15,4 @@ configMapGenerator:
 
 images:
   - name: registry.sighup.io/fury/gangplank
-    newTag: "0.1.0"
+    newTag: "v1.0.0"
