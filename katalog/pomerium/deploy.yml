@@ -10,8 +10,8 @@ metadata:
     app: pomerium
 spec:
   selector:
-  matchLabels:
-    app: pomerium
+    matchLabels:
+      app: pomerium
   replicas: 1
   template:
     metadata:
