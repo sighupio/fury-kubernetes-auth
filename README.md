@@ -5,7 +5,7 @@
 </h1>
 <!-- markdownlint-enable MD033 -->
 
-![Release](https://img.shields.io/badge/Latest%20Release-v0.1.0-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v0.2.0-blue)
 ![License](https://img.shields.io/github/license/sighupio/fury-kubernetes-auth?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -22,19 +22,20 @@ If you are new to KFD please refer to the [official documentation][kfd-docs] on 
 
 Kubernetes Fury Auth provides the following packages:
 
-| Package                      | Version   | Description                                                                       |
-| ---------------------------- | --------- | --------------------------------------------------------------------------------- |
-| [Pomerium](katalog/pomerium) | `v0.23.0` | Identity-aware proxy that enables secure access to internal applications.         |
-| [Dex](katalog/dex)           | `v2.37.0` | Dex is a Federated OpenID Connect Provider.                                       |
-| [Gangway](katalog/gangway)   | `v3.2.0`  | Enable authentication flows via OIDC for a kubernetes cluster (to be deprecated). |
+| Package                       | Version   | Description                                                                       |
+| ----------------------------- | --------- | --------------------------------------------------------------------------------- |
+| [Pomerium](katalog/pomerium)  | `v0.25.0` | Identity-aware proxy that enables secure access to internal applications.         |
+| [Dex](katalog/dex)            | `v2.38.0` | Dex is a Federated OpenID Connect Provider.                                       |
+| [Gangplank](katalog/gangplank)| `v1.0.0`   | Enable authentication flows via OIDC for a kubernetes cluster.                    |
 
 ## Compatibility
 
 | Kubernetes Version |   Compatibility    | Notes            |
 | ------------------ | :----------------: | ---------------- |
-| `1.25.x`           | :white_check_mark: | No known issues. |
 | `1.26.x`           | :white_check_mark: | No known issues. |
 | `1.27.x`           | :white_check_mark: | No known issues. |
+| `1.28.x`           | :white_check_mark: | No known issues. |
+| `1.29.x`           | :white_check_mark: | No known issues. |
 
 Check the [compatibility matrix][compatibility-matrix] for additional information on previous releases of the modules.
 
@@ -53,11 +54,11 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.1.0"
+    auth: "v0.2.0"
 bases:
   - name: auth/pomerium
   - name: auth/dex
-  - name: auth/gangway
+  - name: auth/gangplank
 ```
 
 > See `furyctl` [documentation][furyctl-repo] for additional details about `Furyfile.yml` format.
@@ -72,7 +73,7 @@ bases:
 resources:
   - ./vendor/katalog/auth/pomerium
   - ./vendor/katalog/auth/dex
-  - ./vendor/katalog/auth/gangway
+  - ./vendor/katalog/auth/gangplank
 ```
 
 5. Create the configuration file for Dex ([here's an LDAP-based example](katalog/dex/config.yml)) and add it as a secret to the `kustomization.yaml` file, like this:
@@ -87,7 +88,7 @@ secretGenerator:
 
 > ℹ️ read more on [Dex's readme](katalog/dex/README.md).
 
-⛔️ Before proceeding, follow the instructions in [Pomerium's package readme](katalog/pomerium/README.md) and [Gangway's readme](katalog/gangway/README.md) to configure them.
+⛔️ Before proceeding, follow the instructions in [Pomerium's package readme](katalog/pomerium/README.md) and [Gangplank's readme](katalog/gangplank/README.md) to configure them.
 
 6. Finally, to deploy the module to your cluster, execute:
 

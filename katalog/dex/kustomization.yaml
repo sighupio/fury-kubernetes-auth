@@ -10,4 +10,4 @@ resources:
 images:
   - name: ghcr.io/dexidp/dex
     newName: registry.sighup.io/fury/dexidp/dex
-    newTag: v2.37.0
+    newTag: v2.38.0

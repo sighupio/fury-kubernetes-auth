@@ -44,14 +44,14 @@ steps:
       - clone
 
   - name: render
-    image: quay.io/sighup/e2e-testing:1.1.0_0.7.0_3.1.1_1.9.4_1.21.12_3.8.7_4.21.1
+    image: quay.io/sighup/e2e-testing:1.1.0_0.11.0_3.12.0_1.9.4_1.27.1_3.5.3_4.33.3
     pull: always
     depends_on:
       - clone
     commands:
       - kustomize build katalog/pomerium > pomerium.yml
       - kustomize build katalog/dex > dex.yml
-      - kustomize build katalog/gangway > gangway.yml
+      - kustomize build katalog/gangplank > gangplank.yml
 
   - name: check-deprecated-apis
     image: us-docker.pkg.dev/fairwinds-ops/oss/pluto:v5
@@ -60,9 +60,9 @@ steps:
       - render
     commands:
       # we use --ignore-deprecations because we don't want the CI to fail when the API has not been removed yet.
-      - /pluto detect pomerium.yml --ignore-deprecations --target-versions=k8s=v1.27.0
-      - /pluto detect dex.yml --ignore-deprecations --target-versions=k8s=v1.27.0
-      - /pluto detect gangway.yml --ignore-deprecations --target-versions=k8s=v1.27.0
+      - /pluto detect pomerium.yml --ignore-deprecations --target-versions=k8s=v1.29.0
+      - /pluto detect dex.yml --ignore-deprecations --target-versions=k8s=v1.29.0
+      - /pluto detect gangplank.yml --ignore-deprecations --target-versions=k8s=v1.29.0
 
 # ---
 # name: e2e-kubernetes-1.20

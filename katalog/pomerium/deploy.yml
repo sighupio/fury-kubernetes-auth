@@ -6,10 +6,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pomerium
-
+  labels: 
+    app: pomerium
 spec:
+  selector:
+    matchLabels:
+      app: pomerium
   replicas: 1
   template:
+    metadata:
+      labels:
+        app: pomerium
     spec:
       containers:
         - name: pomerium
@@ -43,8 +50,6 @@ spec:
             #   value: "debug"
             # - name: PROXY_LOG_LEVEL
             #   value: "debug"
-            # - name: POMERIUM_DEBUG
-            #   value: "true"
           livenessProbe:
             failureThreshold: 3
             httpGet:
@@ -61,7 +66,7 @@ spec:
           resources:
             limits:
               cpu: 500m
-              memory: 256Mi
+              memory: 1024Mi
             requests:
               cpu: 100m
               memory: 128Mi
