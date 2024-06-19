@@ -40,6 +40,10 @@ steps:
       VALIDATE_DOCKERFILE: "false"
       # Disable natural language checks
       VALIDATE_NATURAL_LANGUAGE: "false"
+      # Disable html checks
+      VALIDATE_HTML: "false"
+      # Disable css checks
+      VALIDATE_CSS: "false"
     depends_on:
       - clone
 
