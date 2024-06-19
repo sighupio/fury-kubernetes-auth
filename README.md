@@ -5,7 +5,7 @@
 </h1>
 <!-- markdownlint-enable MD033 -->
 
-![Release](https://img.shields.io/badge/Latest%20Release-v0.2.0-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v0.3.0-blue)
 ![License](https://img.shields.io/github/license/sighupio/fury-kubernetes-auth?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -54,7 +54,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 versions:
-    auth: "v0.2.0"
+    auth: "v0.3.0"
 bases:
   - name: auth/pomerium
   - name: auth/dex
