@@ -23,3 +23,14 @@ What was customized (what differs from the helm template command):
 - Added resources and limits
 - Added interval `30s` to ServiceMonitor
 - Removed secret, since it's custom for each dex deploy
+- Changed the themes and templates with custom branding
+
+## How to customize the frontend templates
+
+To customize the frontend templates, find and edit the files under the folder `web/templates`, if you need to just change the styles, edit the files under `web/themes/{light, dark}/styles.css`.
+
+Then, to apply the changes, run the following command:
+
+```bash
+tar -czf web.tar.gz -C web .
+```
