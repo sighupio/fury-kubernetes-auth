@@ -46,7 +46,7 @@ metadata:
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
-  name: dex  
+  name: dex
 subjects:
 - kind: ServiceAccount
   namespace: kube-system
@@ -86,6 +86,15 @@ spec:
         app: dex
     spec:
       serviceAccountName: dex
+      initContainers:
+        - name: init-config
+          image: busybox
+          command: ['sh', '-c', 'tar -xzvf /web-archive/web.tar.gz -C /app/web/']
+          volumeMounts:
+            - name: dex-web-custom-archive
+              mountPath: /web-archive
+            - name: dex-web-custom
+              mountPath: /app/web
       containers:
         - name: dex
           image: ghcr.io/dexidp/dex:v2.38.0
@@ -116,10 +125,19 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /etc/dex/cfg
+            - name: dex-web-custom-archive
+              mountPath: /web-archive
+            - name: dex-web-custom
+              mountPath: /app/web
       volumes:
         - name: config
           secret:
             secretName: dex
+        - name: dex-web-custom-archive
+          configMap:
+            name: dex-web-custom-archive
+        - name: dex-web-custom
+          emptyDir: {}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
