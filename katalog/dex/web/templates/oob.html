@@ -1,0 +1,15 @@
+<!--
+ Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+ Use of this source code is governed by a BSD-style
+ license that can be found in the LICENSE file.
+-->
+
+{{ template "header.html" . }}
+
+<div class="theme-panel">
+  <h2 class="theme-heading">Login Successful</h2>
+  <p>Please copy this code, switch to your application and paste it there:</p>
+  <input type="text" class="theme-form-input" value="{{ .Code }}" />
+</div>
+
+{{ template "footer.html" . }}

@@ -11,6 +11,9 @@ web:
   http: 0.0.0.0:5556
 telemetry:
   http: 0.0.0.0:5558
+frontend:
+  dir: /app/web
+  theme: dark
 connectors:
   - type: ldap
     id: ldap

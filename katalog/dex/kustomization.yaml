@@ -7,7 +7,14 @@ namespace: kube-system
 resources:
   - deploy.yml
 
+configMapGenerator:
+  - name: dex-web-custom-archive
+    files:
+      - web.tar.gz=web.tar.gz
+
 images:
+  - name: busybox
+    newName: registry.sighup.io/fury/busybox
   - name: ghcr.io/dexidp/dex
     newName: registry.sighup.io/fury/dexidp/dex
     newTag: v2.38.0
