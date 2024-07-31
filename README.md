@@ -10,6 +10,7 @@
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
 <!-- <KFD-DOCS> -->
+
 **Kubernetes Fury Auth** provides Authentication Management for [Kubernetes Fury Distribution (KFD)][kfd-repo].
 
 If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with the distribution.
@@ -22,11 +23,11 @@ If you are new to KFD please refer to the [official documentation][kfd-docs] on 
 
 Kubernetes Fury Auth provides the following packages:
 
-| Package                       | Version   | Description                                                                       |
-| ----------------------------- | --------- | --------------------------------------------------------------------------------- |
-| [Pomerium](katalog/pomerium)  | `v0.25.0` | Identity-aware proxy that enables secure access to internal applications.         |
-| [Dex](katalog/dex)            | `v2.38.0` | Dex is a Federated OpenID Connect Provider.                                       |
-| [Gangplank](katalog/gangplank)| `v1.1.0`   | Enable authentication flows via OIDC for a kubernetes cluster.                    |
+| Package                        | Version   | Description                                                               |
+| ------------------------------ | --------- | ------------------------------------------------------------------------- |
+| [Pomerium](katalog/pomerium)   | `v0.25.0` | Identity-aware proxy that enables secure access to internal applications. |
+| [Dex](katalog/dex)             | `v2.38.0` | Dex is a Federated OpenID Connect Provider.                               |
+| [Gangplank](katalog/gangplank) | `v1.1.0`  | Enable authentication flows via OIDC for a kubernetes cluster.            |
 
 ## Compatibility
 
@@ -48,13 +49,13 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 | [furyctl][furyctl-repo]     | `>=0.6.0` | The recommended tool to download and manage KFD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].     |
 | [kustomize][kustomize-repo] | `>=3.5.0` | Packages are customized using `kustomize`. To learn how to create your customization layer with `kustomize`, please refer to the [repository][kustomize-repo]. |
 
-### Deployment
+### Deployment with legacy furyctl
 
 1. List the packages you want to deploy and their version in a `Furyfile.yml`:
 
 ```yaml
 versions:
-    auth: "v0.3.0"
+  auth: "v0.3.0"
 bases:
   - name: auth/pomerium
   - name: auth/dex
@@ -115,6 +116,7 @@ In particular:
 ### Screenshots
 
 <!-- markdownlint-disable MD033 -->
+
 - Dex Login:
 
 <a href="docs/images/screenshots/dex.png"><img src="docs/images/screenshots/dex.png" width="250"/></a>
@@ -130,6 +132,7 @@ In particular:
 <!-- markdownlint-enable MD033 -->
 
 <!-- Links -->
+
 [furyctl-repo]: https://github.com/sighupio/furyctl
 [kfd-repo]: https://github.com/sighupio/fury-distribution
 [kustomize-repo]: https://github.com/kubernetes-sigs/kustomize
@@ -137,9 +140,11 @@ In particular:
 [compatibility-matrix]: https://github.com/sighupio/fury-kubernetes-auth/blob/master/docs/COMPATIBILITY_MATRIX.md
 [pomerium-repo]: https://github.com/pomerium/pomerium
 [dex-repo]: https://github.com/dexidp/dex
+
 <!-- </KFD-DOCS> -->
 
 <!-- <FOOTER> -->
+
 ## Contributing
 
 Before contributing, please read first the [Contributing Guidelines](docs/CONTRIBUTING.md).
@@ -151,4 +156,5 @@ In case you experience any problems with the module, please [open a new issue](h
 ## License
 
 This module is open-source and it's released under the following [LICENSE](LICENSE)
+
 <!-- </FOOTER> -->
