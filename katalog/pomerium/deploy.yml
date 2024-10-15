@@ -1,4 +1,4 @@
-# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# https://github.com/pomerium/pomerium>Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -6,7 +6,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pomerium
-  labels: 
+  labels:
     app: pomerium
 spec:
   selector:
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: pomerium
-          image: pomerium/pomerium
+          image: pomerium/pomerium:nonroot-v0.27.1
           ports:
             - containerPort: 8443
               name: https
