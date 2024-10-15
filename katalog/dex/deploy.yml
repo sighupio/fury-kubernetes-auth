@@ -97,7 +97,7 @@ spec:
               mountPath: /app/web
       containers:
         - name: dex
-          image: ghcr.io/dexidp/dex:v2.38.0
+          image: ghcr.io/dexidp/dex:v2.41.1
           command:
             - /usr/local/bin/dex
             - serve
