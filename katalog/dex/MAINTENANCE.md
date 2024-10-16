@@ -7,7 +7,7 @@ Run the following commands:
 ```bash
 helm repo add dex https://charts.dexidp.io
 helm repo update
-helm template dex dex/dex -n kube-system --set serviceMonitor.enabled=true > dex-built.yml
+helm template dex dex/dex -n kube-system --values MAINTENANCE.values.yaml > dex-built.yml
 ```
 
 With the `dex-built.yml` file, check differences with the current `deploy.yml` file and change accordingly.
@@ -24,6 +24,7 @@ What was customized (what differs from the helm template command):
 - Added interval `30s` to ServiceMonitor
 - Removed secret, since it's custom for each dex deploy
 - Changed the themes and templates with custom branding
+- Added securityContext configuration to be compliant with the `restricted` PSS. You should not see differences in the diff.
 
 ## How to customize the frontend templates
 
