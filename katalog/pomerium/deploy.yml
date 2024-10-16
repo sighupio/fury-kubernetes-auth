@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: pomerium
-          image: pomerium/pomerium:nonroot-v0.27.1
+          image: pomerium/pomerium
           ports:
             - containerPort: 8443
               name: https
