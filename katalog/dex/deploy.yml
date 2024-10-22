@@ -26,9 +26,9 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   name: dex
 subjects:
-- kind: ServiceAccount
-  namespace: kube-system
-  name: dex
+  - kind: ServiceAccount
+    namespace: kube-system
+    name: dex
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -48,9 +48,9 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   name: dex
 subjects:
-- kind: ServiceAccount
-  namespace: kube-system
-  name: dex
+  - kind: ServiceAccount
+    namespace: kube-system
+    name: dex
 ---
 apiVersion: v1
 kind: Service
@@ -89,12 +89,25 @@ spec:
       initContainers:
         - name: init-config
           image: busybox:stable
-          command: ['sh', '-c', 'tar -xzvf /web-archive/web.tar.gz -C /app/web/']
+          command:
+            ["sh", "-c", "tar -xzvf /web-archive/web.tar.gz -C /app/web/"]
           volumeMounts:
             - name: dex-web-custom-archive
               mountPath: /web-archive
             - name: dex-web-custom
               mountPath: /app/web
+          securityContext:
+            privileged: false
+            runAsNonRoot: true
+            runAsUser: 1001
+            runAsGroup: 1001
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
       containers:
         - name: dex
           image: ghcr.io/dexidp/dex:v2.41.1
@@ -122,13 +135,28 @@ spec:
             limits:
               cpu: 250m
               memory: 200Mi
+          securityContext:
+            privileged: false
+            runAsNonRoot: true
+            runAsUser: 1001
+            runAsGroup: 1001
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - name: config
               mountPath: /etc/dex/cfg
+              readOnly: true
             - name: dex-web-custom-archive
               mountPath: /web-archive
+              readOnly: true
             - name: dex-web-custom
               mountPath: /app/web
+              readOnly: true
       volumes:
         - name: config
           secret:
