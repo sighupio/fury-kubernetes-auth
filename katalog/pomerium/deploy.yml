@@ -6,13 +6,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pomerium
-  labels: 
+  labels:
     app: pomerium
 spec:
   selector:
     matchLabels:
       app: pomerium
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
