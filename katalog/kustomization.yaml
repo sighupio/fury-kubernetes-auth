@@ -1,0 +1,4 @@
+resources:
+  - ./dex
+  - ./pomerium
+  - ./gangplank

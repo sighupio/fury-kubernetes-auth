@@ -19,7 +19,7 @@ resources:
   - svc.yml
   - ingress.yml
   - monitoring
-  - postgresql.yml
+  - postgres/postgresql.yml
 
 secretGenerator:
   - name: pomerium-env
