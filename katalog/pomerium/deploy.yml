@@ -73,7 +73,19 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
+            privileged: false
+            runAsUser: 65532
+            runAsGroup: 65532
+            readOnlyRootFilesystem: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
+            # This tmp mount is needed so we can have readOnlyRootFilesystem: true
+            - name: tmp
+              mountPath: /tmp
             - mountPath: /etc/pomerium/
               name: pomerium-policy
       volumes:
@@ -81,3 +93,5 @@ spec:
             defaultMode: 420
             name: pomerium-policy
           name: pomerium-policy
+        - name: tmp
+          emptyDir: {}
