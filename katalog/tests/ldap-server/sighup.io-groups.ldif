@@ -1,0 +1,43 @@
+version: 1
+
+dn: ou=groups,dc=sighup,dc=io
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: ou=people,dc=sighup,dc=io
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+dn: cn=user1,ou=people,dc=sighup,dc=io
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: user
+sn: one
+mail: user.one@sighup.io
+displayName: "Player One"
+userPassword: userone
+
+dn: cn=user2,ou=people,dc=sighup,dc=io
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: user
+sn: two
+mail: user.two@sighup.io
+displayName: "Player Two"
+userPassword: usertwo
+
+dn: cn=engineering,ou=groups,dc=sighup,dc=io
+objectClass: top
+objectClass: groupOfNames
+cn: engineering
+member: cn=user1,ou=people,dc=sighup,dc=io
+
+dn: cn=operations,ou=groups,dc=sighup,dc=io
+objectClass: top
+objectClass: groupOfNames
+cn: amministrazione
+member: cn=user2,ou=people,dc=sighup,dc=io
