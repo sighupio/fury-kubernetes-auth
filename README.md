@@ -29,7 +29,7 @@ The following packages are included in Auth Module:
 
 | Package                        | Version   | Description                                                               |
 | ------------------------------ | --------- | ------------------------------------------------------------------------- |
-| [Pomerium](katalog/pomerium)   | `v0.32.7` | Identity-aware proxy that enables secure access to internal applications. |
+| [Pomerium](katalog/pomerium)   | `v0.33.1` | Identity-aware proxy that enables secure access to internal applications. |
 | [Dex](katalog/dex)             | `v2.45.1` | Dex is a Federated OpenID Connect Provider.                               |
 | [Gangplank](katalog/gangplank) | `v1.2.1`  | Enable authentication flows via OIDC for a Kubernetes cluster.            |
 
