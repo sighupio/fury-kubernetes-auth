@@ -15,7 +15,7 @@ volumes:
       path: /root/mise_data_dir
 steps:
   - name: check
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     environment:
       MISE_DATA_DIR: /mise-data
@@ -50,7 +50,7 @@ volumes:
       path: /root/mise_data_dir
 steps:
   - name: render
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     environment:
       GITHUB_TOKEN:
@@ -67,7 +67,7 @@ steps:
       - kustomize build katalog/gangplank > gangplank.yml
 
   - name: lint
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     environment:
       MISE_DATA_DIR: /mise-data
@@ -141,7 +141,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -161,7 +161,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -176,12 +176,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -196,7 +196,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -241,7 +241,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -261,7 +261,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -276,12 +276,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -296,7 +296,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -341,7 +341,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -361,7 +361,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -376,12 +376,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -396,7 +396,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -441,7 +441,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -461,7 +461,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -476,12 +476,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -496,7 +496,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -541,7 +541,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -561,7 +561,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -576,12 +576,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -596,7 +596,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -641,7 +641,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -661,7 +661,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -676,12 +676,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.64.2 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -696,7 +696,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.29.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.29.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:
@@ -741,7 +741,7 @@ volumes:
 
 steps:
   - name: Create Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -761,7 +761,7 @@ steps:
       - ./scripts/create-e2e-cluster.sh
 
   - name: Run E2E Tests
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -776,12 +776,12 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.11.0 kapp@0.65.3 envsubst@1.4.3
+        mise use kubectl@$${KUBECTL_VERSION} kustomize@5.6.0 bats@1.14.0 kapp@0.65.3 envsubst@1.4.3
         eval "$(mise activate bash --shims)"
       - ./scripts/run-e2e-tests.sh
 
   - name: Destroy Kind Cluster
-    image: quay.io/sighup/mise:v2026.6.14
+    image: quay.io/sighup/mise:v2026.8.6
     pull: always
     network_mode: host
     depends_on:
@@ -796,7 +796,7 @@ steps:
         from_secret: github_token
     commands:
       - |
-        mise use kubectl@${KUBECTL_VERSION} kind@0.31.0
+        mise use kubectl@$${KUBECTL_VERSION} kind@0.31.0
         eval "$(mise activate bash --shims)"
       - ./scripts/cleanup-e2e-cluster.sh
     when:

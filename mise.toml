@@ -4,22 +4,22 @@
 
 [env]
 # Default values for local development
-KUBE_VERSION = "1.35.0"
+KUBE_VERSION = "1.36.4"
 DRONE_BUILD_NUMBER = "9999"
 DRONE_REPO_NAME = "module-auth"
 
 [tools]
-bats = "1.11.0"
+bats = "1.14.0"
 drone = "1.9.0"
-dyff = "1.9.0"
+dyff = "1.12.0"
 envsubst = "1.4.3"
-helm = "3.15.0"
+helm = "3.21.2"
 kapp = "0.65.3"
-kind = "0.32.0"
+kind = "0.33.0"
 kube-linter = "0.8.3"
-kubectl = "1.35.6"
+kubectl = "1.36.4"
 kustomize = "5.6.0"
-yq = "4.53.3"
+yq = "4.53.6"
 "ubi:google/addlicense" = "v1.1.1"
 
 # Development task definitions
