@@ -12,7 +12,8 @@ Welcome to the latest release of the Auth module for the SIGHUP Distribution.
 
 ## Compatibility
 
-This release maintains compatibility with Kubernetes versions 1.29.x through 1.35.x.
+This release adds support for Kubernetes 1.36.x while maintaining compatibility with
+versions 1.29.x through 1.35.x.
 
 ## Update Guide 🦮
 
