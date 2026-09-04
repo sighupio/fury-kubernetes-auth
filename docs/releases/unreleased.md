@@ -8,12 +8,27 @@ Welcome to the latest release of the Auth module for the SIGHUP Distribution.
 | ----------- | ---------------------------------------------------------------------- | ---------------- |
 | `dex`       | [`v2.45.1`](https://github.com/dexidp/dex/releases/tag/v2.45.1)        | `v2.45.1`        |
 | `gangplank` | [`v1.2.1`](https://github.com/sighupio/gangplank/releases/tag/v1.2.1)  | `v1.2.1`         |
-| `pomerium`  | [`v0.32.7`](https://github.com/pomerium/pomerium/releases/tag/v0.32.7) | `v0.32.7`        |
+| `pomerium`  | [`v0.33.1`](https://github.com/pomerium/pomerium/releases/tag/v0.33.1) | `v0.32.7`        |
 
 ## Compatibility
 
 This release adds support for Kubernetes 1.36.x while maintaining compatibility with
 versions 1.29.x through 1.35.x.
+
+## Notable changes
+
+Pomerium moves from `v0.32.7` to `v0.33.1`, which includes two security fixes:
+
+- [CVE-2026-47774](https://github.com/envoyproxy/envoy/discussions/45481) (High), an HTTP/2
+  memory exhaustion via cookie header HPACK amplification, fixed by the Envoy `1.36.8`
+  update in Pomerium `v0.32.9`.
+- [GHSA-ggw3-5987-rx77](https://github.com/pomerium/pomerium/security/advisories/GHSA-ggw3-5987-rx77)
+  (High), a pre-authentication memory exhaustion in the HPKE callback, fixed in Pomerium
+  `v0.32.8`. Upstream reports that self-hosted stateful deployments, which is how this module
+  deploys Pomerium, are not affected.
+
+Pomerium's container image is now based on distroless `base-nossl`, and the embedded Envoy
+proxy has been updated to the 1.37 line.
 
 ## Update Guide 🦮
 
